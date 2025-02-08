@@ -11,6 +11,8 @@ public interface OrderService {
 	List<OrderDto> getAllOrdersById(Long customerid);
 
 	OrderDto updateOrder(OrderDto orderDto, Long reviewid, Long orderid);
-	
+
 	OrderDto deleteOrder(Long orderid);
+
+	Double totalAmountSpent(Long customerid);
 }

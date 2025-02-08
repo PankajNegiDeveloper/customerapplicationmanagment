@@ -52,4 +52,11 @@ public class OrderController {
 		return new ResponseEntity<>("Order has been deleted successfully", HttpStatus.OK);
 	}
 
+	@GetMapping("/totalamount/{customerid}")
+	public ResponseEntity<String> totalAmount(@PathVariable Long customerid) {
+		Double totalAmountSpent = orderService.totalAmountSpent(customerid);
+		return new ResponseEntity(
+				totalAmountSpent + " is the total amount spent by the cusomter with id: " + customerid, HttpStatus.OK);
+	}
+
 }

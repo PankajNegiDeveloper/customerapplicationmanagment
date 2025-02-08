@@ -99,4 +99,16 @@ public class OrderServiceImpl implements OrderService {
 		return null;
 	}
 
+	// calculating total amount spent by a customer
+	@Override
+	public Double totalAmountSpent(Long customerid) {
+		Customer customer = customerRepo.findById(customerid)
+				.orElseThrow(() -> new NoResourceFoundException("Customer", "ID", customerid));
+		List<Order> orders = orderRepo.findByCustomer(customer);
+		double total = 0.0;
+		for (Order order : orders) {
+			total += order.getTotalAmount();
+		}
+		return total;
+	}
 }
