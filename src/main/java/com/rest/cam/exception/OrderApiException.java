@@ -16,8 +16,6 @@ public class OrderApiException extends RuntimeException{
 		this.message = message;
 	}
 
-
-
 	public HttpStatus getStatus() {
 		return status;
 	}
