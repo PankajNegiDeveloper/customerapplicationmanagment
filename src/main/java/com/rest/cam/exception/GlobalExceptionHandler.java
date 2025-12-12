@@ -40,14 +40,14 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
 		return new ResponseEntity<>(custom, HttpStatus.BAD_REQUEST);
 	}
 	
-	@ExceptionHandler(exception = AccessDeniedException.class)
-	public ResponseEntity<MyCustomException> orderApiException(AccessDeniedException oa, WebRequest wr) {
-		MyCustomException custom = new MyCustomException();
-		custom.setDate(new Date());
-		custom.setMessage(oa.getMessage());
-		custom.setDescription(wr.getDescription(false));
-		return new ResponseEntity<>(custom, HttpStatus.UNAUTHORIZED);
-	}
+//	@ExceptionHandler(exception = AccessDeniedException.class)
+//	public ResponseEntity<MyCustomException> orderApiException(AccessDeniedException oa, WebRequest wr) {
+//		MyCustomException custom = new MyCustomException();
+//		custom.setDate(new Date());
+//		custom.setMessage(oa.getMessage());
+//		custom.setDescription(wr.getDescription(false));
+//		return new ResponseEntity<>(custom, HttpStatus.UNAUTHORIZED);
+//	}
 	
 	@ExceptionHandler(exception = AuthorizationDeniedException.class)
 	public ResponseEntity<MyCustomException> orderApiException(AuthorizationDeniedException oa, WebRequest wr) {

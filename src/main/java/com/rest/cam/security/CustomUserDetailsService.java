@@ -1,6 +1,5 @@
 package com.rest.cam.security;
 
-import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -25,6 +24,7 @@ public class CustomUserDetailsService implements UserDetailsService {
 		super();
 		this.userRepo = userRepo;
 	}
+
 
 	@Override
 	public UserDetails loadUserByUsername(String usernameOrEmail) throws UsernameNotFoundException {

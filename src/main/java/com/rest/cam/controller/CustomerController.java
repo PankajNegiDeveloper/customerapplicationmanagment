@@ -45,7 +45,7 @@ public class CustomerController {
 	public ResponseEntity<CustomerDto> getAllCustomers(
 			@RequestParam(value = "pageNo", defaultValue = "0", required = false) Integer pageNo,
 			@RequestParam(value = "pageSize", defaultValue = "5", required = false) Integer pageSize,
-			@RequestParam(value = "sortBy", defaultValue = "id", required = false) String sortBy,
+			@RequestParam(value = "sortBy", defaultValue = "customerid", required = false) String sortBy,
 			@RequestParam(value = "sortDir", defaultValue = "ASC", required = false) String sortDir) {
 
 		Sort sort = sortDir.equalsIgnoreCase(Sort.Direction.ASC.name()) ? Sort.by(sortBy).ascending()

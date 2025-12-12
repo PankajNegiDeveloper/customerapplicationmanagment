@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +28,7 @@ public class CustomerServiceImpl implements CustomerService {
 	// DTO to Entity
 	public Customer mapDtoToEntity(CustomerDto customerDto) {
 		Customer customer = new Customer();
-		customer.setCustomerid(customer.getCustomerid());
+		customer.setCustomerid(customerDto.getCustomerid());
 		customer.setName(customerDto.getName());
 		customer.setEmail(customerDto.getEmail());
 		return customer;
@@ -49,7 +50,7 @@ public class CustomerServiceImpl implements CustomerService {
 	}
 
 	@Override
-	public List<CustomerDto> getAllCustomers(Pageable page) {
+	public List<CustomerDto> getAllCustomers(PageRequest page) {
 		Page<Customer> findAllCustomers = customerRepo.findAll(page);
 //		List<Customer> allCustomers = customerRepo.findAll();
 		List<Customer> customers = findAllCustomers.getContent();
